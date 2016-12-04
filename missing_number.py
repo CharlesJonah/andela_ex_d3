@@ -1,13 +1,9 @@
 def find_missing(List1, List2):
-   extraList = []
-   lesserList = []
-   if len(List1) > len(List2): #compares the two lenghts for thr lists
-       extraList = List1
-       lesserList = List2
-   else:
-       extraList = List2
-       lesserList = List1
-   extraNumber = [x for x in extraList if x not in lesserList]
-   if len(extraNumber) == 0:
-       return 0
-   return extraNumber.pop()
+  List1 = set(List1) #Convert list to set
+  List2 = set(List2)  #Convert list to set
+  if List1 != List2:  #compare the 2 sets
+    finallist = list(List2 - List1)
+    for i in finallist:
+      return i
+  else:
+    return 0
